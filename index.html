@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X | Anasayfa</title>
+    <link rel="shortcut icon" href="images/x-logo.png" type="image/x-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="scss/style.css" />
+  </head>
+  <body id="feed">
+    <nav>
+      <ul>
+        <i class="bi bi-twitter-x"></i>
+
+        <li>
+          <a href="/">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Anasayfa</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <i class="bi bi-search"></i>
+            <span>Keşfet</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <i class="bi bi-bell-fill"></i>
+            <span>Bildirimler</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <i class="bi bi-bookmark-fill"></i>
+            <span>Yer İşaretleri</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <i class="bi bi-envelope-fill"></i>
+            <span>Mesajlar</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <i class="bi bi-send-fill"></i>
+            <span>Gönder</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="user-info">
+        <img id="profile-pic" src="images/x-logo.png" />
+
+        <div>
+          <p id="user-name">İsim</p>
+          <p id="user-tag">@İsim</p>
+          <button id="logout-btn">
+            <i class="bi bi-door-open-fill"></i>
+            <span>Çıkış Yap</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header>Anasayfa</header>
+
+      <form id="post-tweet" action="">
+        <img id="profile-pic" src="images/defaultt.png" />
+        <div class="input-area">
+          <input placeholder="Neler Oluyor..." type="text" />
+          <div class="button-area">
+            <button>Tweetle</button>
+          </div>
+        </div>
+      </form>
+
+      <section class="tweet-area">
+        <!-- <div class="tweet">
+          <img id="user-img" src="images/defaultt.png" alt="" />
+
+          <div class="body">
+            <div class="user">
+              <a href="#">
+                <img id="mobile-img" src="images/defaultt.png" alt="" />
+
+                <b>Deneme</b>
+                <p>@Deneme</p>
+                <p>20 Saat Önce</p>
+              </a>
+              <i class="bi bi-three-dots"></i>
+            </div>
+            <div class="content">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Cupiditate sint quas maiores. Incidunt, molestiae deserunt.
+              </p>
+              <img src="images/indir.jpeg" alt="" />
+            </div>
+            <div class="buttons">
+              <button>
+                <i class="bi bi-chat"></i>
+                <span>34</span>
+              </button>
+              <button>
+                <i class="bi bi-recycle"></i>
+                <span>45</span>
+              </button>
+              <button>
+                <i class="bi bi-heart"></i>
+                <span>234</span>
+              </button>
+              <button>
+                <i class="bi bi-bookmark"></i>
+                <span>43</span>
+              </button>
+            </div>
+          </div>
+        </div>  -->
+      </section>
+    </main>
+
+    <aside>
+      <form>
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Ara..." />
+      </form>
+    </aside>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/tr.min.js"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

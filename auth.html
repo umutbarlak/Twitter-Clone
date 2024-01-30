@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="shortcut icon" href="images/x-logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="scss/style.css" />
+  </head>
+  <body id="auth-page">
+    <form id="login">
+      <img src="images/x-logo.png" alt="" />
+
+      <div>
+        <label for="">Kullanıcı Adı</label>
+        <input autocomplete="off" id="name" type="text" class="form-control" />
+        <div class="name-warning">
+          <!-- <p class="warning">Bu isimde kullanıcı bulunamadı</p> -->
+        </div>
+      </div>
+
+      <div>
+        <label for="">Şifre</label>
+        <input
+          autocomplete="current-password"
+          id="pass"
+          type="password"
+          class="form-control"
+        />
+        <div class="pass-warning">
+          <p class="warning">Şifreniz güçlü değil</p>
+        </div>
+      </div>
+
+      <button>Giriş Yap</button>
+    </form>
+
+    <script type="module" src="scripts/auth.js"></script>
+  </body>
+</html>

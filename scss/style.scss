@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@import "auth";
+
+@import "responsive";
+
+@import "loader";
+@import "user";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  filter: brightness(60%);
+}
+
+#feed {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  padding: 0 8%;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+
+  @include sm {
+    grid-template-areas: 2fr 400px 0;
+    padding: 0;
+  }
+
+  @include md {
+    grid-template-columns: 1fr 600px 1fr;
+    padding: 0;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 600px 2fr;
+    padding: 0;
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr 10fr 0;
+    padding: 0;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 10px 0;
+  margin-top: 10px;
+
+  @media (max-width: 576px) {
+    align-items: center;
+    margin: 0 0 0 0;
+  }
+
+  @include md {
+    align-items: center;
+    margin: 10px 20px 0 10px;
+  }
+
+  @include lg {
+    align-items: end;
+
+    span {
+      display: none;
+    }
+  }
+
+  @include lg-x {
+    margin-right: 10px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .bi-twitter-x {
+      font-size: 25px;
+      cursor: pointer;
+      padding: 0 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    li {
+      list-style-type: none;
+      white-space: nowrap;
+      padding: 0 10px;
+      width: fit-content;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: rgb(60, 60, 60);
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        gap: 10px;
+
+        i {
+          font-size: 25px;
+          color: white;
+        }
+
+        span {
+          color: white;
+        }
+
+        @include sm {
+          i {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &:last-child {
+        background-color: $blue;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: rgb(8, 104, 201);
+        }
+      }
+    }
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+    row-gap: 5px;
+
+    @include md {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    @include lg {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+
+      @include md {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    button {
+      font-size: 16px;
+      padding: 4px 10px;
+
+      @include md {
+        font-size: 18px;
+        padding: 6px 16px;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 14px;
+
+      @include lg {
+        // align-items: center;
+      }
+    }
+
+    span,
+    p {
+      @include lg {
+        display: none;
+      }
+    }
+  }
+}
+
+main {
+  height: 100vh;
+  overflow-y: auto;
+  border: 1px solid rgb(60, 60, 60);
+
+  header {
+    padding: 20px;
+    font-weight: bold;
+    font-feature-settings: 21px;
+    border-bottom: 1px solid rgb(60, 60, 60);
+  }
+
+  #post-tweet {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(60, 60, 60);
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .input-area {
+      width: 100%;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 20px;
+      }
+
+      .button-area {
+        display: flex;
+        justify-content: end;
+        button {
+          border-radius: 30px;
+          background-color: $blue;
+          color: white;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: rgb(8, 104, 201);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    background: black;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+  }
+}
+
+.tweet-area {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.tweet {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(60, 60, 60);
+
+  #user-img {
+    height: 50px;
+    border-radius: 50%;
+    @include sm {
+      display: none;
+    }
+  }
+
+  .body {
+    width: 100%;
+    margin-top: 10px;
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+
+        #mobile-img {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          display: none;
+
+          @include sm {
+            display: block;
+          }
+        }
+
+        p {
+          color: gray;
+          @include sm {
+            font-size: 14px;
+          }
+        }
+      }
+
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    text-decoration: none;
+    color: white;
+
+    img {
+      max-width: 600px;
+      width: 100%;
+      max-height: 600px;
+      border-radius: 10px;
+      margin-block: 10px;
+    }
+    video {
+      width: 100%;
+      max-height: 600px;
+      border-radius: 10px;
+      margin-block: 10px;
+    }
+  }
+}
+
+.tweet .buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background: none;
+    color: gray;
+
+    @include sm {
+      font-size: 14px;
+    }
+
+    &:nth-child(1) {
+      &:hover {
+        color: #224e60;
+        background-color: #5bd6ffbc;
+      }
+    }
+    &:nth-child(2) {
+      &:hover {
+        color: #3d7a47;
+        background-color: #7ee9ad;
+      }
+    }
+    &:nth-child(3) {
+      &:hover {
+        color: rgb(238, 0, 255);
+        background-color: rgb(218, 145, 223);
+      }
+    }
+    &:nth-child(4) {
+      &:hover {
+        color: #224e60;
+        background-color: #5bd6ffbc;
+      }
+    }
+  }
+}
+
+aside {
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include md {
+    width: 100%;
+  }
+
+  @media (max-width: 850px) {
+    display: none;
+  }
+
+  form {
+    width: 100%;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(60, 60, 60);
+    border-radius: 40px;
+    input {
+      width: 100%;
+      padding: 5px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 16px;
+      font-family: "poppins", sans-serif;
+    }
+
+    i {
+      font-size: 21px;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+
+  i {
+    font-size: 21px;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: rgb(115, 113, 113);
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+}
+
+.detail-tweet {
+  padding: 20px;
+
+  .content {
+    margin-top: 20px !important;
+  }
+
+  .info {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+    p:nth-child(1) {
+      color: gray;
+    }
+
+    p:nth-child(2) {
+      display: flex;
+      gap: 10px;
+      span:nth-child(2) {
+        color: gray;
+      }
+    }
+  }
+}
+
+#comment-form {
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  align-items: center;
+
+  img {
+    border-radius: 50%;
+  }
+
+  input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+  }
+
+  button {
+    background: $blue;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 50px;
+  }
+}
